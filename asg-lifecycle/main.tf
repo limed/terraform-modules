@@ -10,7 +10,8 @@ resource "aws_autoscaling_lifecycle_hook" "lifecycle_hook" {
 }
 
 resource "aws_cloudwatch_log_group" "lifecycled" {
-  name = "${var.lifecycled_log_group}"
+  name              = "${var.lifecycled_log_group}"
+  retention_in_days = "${var.retention_log_days}"
 
   tags = {
     Name      = "${var.name}"
